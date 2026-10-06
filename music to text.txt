@@ -1,0 +1,16 @@
+
+!pip install -q openai-whisper
+
+from google.colab import files
+uploaded = files.upload()
+import whisper
+
+model = whisper.load_model("base")
+
+audio = "/content/musicdream-dramatic-cinematic-documentary-609202.mp3"
+
+result = model.transcribe(audio)
+
+print(result["text"])
+
+open("music_text.txt", "w").write(result["text"])
