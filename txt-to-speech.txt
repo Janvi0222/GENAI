@@ -1,0 +1,18 @@
+!pip install -q transformers torch scipy
+
+from transformers import pipeline
+from scipy.io.wavfile import write
+from IPython.display import Audio
+
+model = pipeline(
+    "text-to-speech",
+    model="facebook/mms-tts-eng"
+)
+
+text = input("Enter text: ")
+
+result = model(text)
+
+write("output.wav", result["sampling_rate"], result["audio"].squeeze())
+
+Audio("output.wav")
