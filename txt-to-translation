@@ -1,0 +1,30 @@
+! pip install translate
+from translate import Translator
+print("""
+English   - en
+Hindi     - hi
+Marathi   - mr
+Gujarati  - gu
+Tamil     - ta
+Telugu    - te
+Bengali   - bn
+Kannada   - kn
+Malayalam - ml
+Punjabi   - pa
+French    - fr
+German    - de
+Spanish   - es
+Italian   - it
+Japanese  - ja
+Chinese   - zh
+Russian   - ru
+Arabic    - ar
+""")
+
+text = input("Enter text: ")
+lang = input("Enter language code: ")
+
+translator = Translator(to_lang=lang)
+
+print("Translation:", translator.translate(text))
+
